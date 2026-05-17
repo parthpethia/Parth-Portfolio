@@ -68,14 +68,25 @@ body {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  padding-top: 80px;
+  padding-top: calc(120px + 12vh);
   overflow: hidden;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2;
+  padding: 0 40px;
+  margin-bottom: -30px; /* Snaps the hero bottom exactly to the image cut */
+  transform: translateX(40px); /* Shift right to visually center the hero section */
 }
 
 /* ===== HERO VISUAL (person + blob + icons) ===== */
@@ -207,33 +218,37 @@ body {
 
 /* ===== HERO TEXT ===== */
 .hero-text {
-  text-align: center;
-  margin-top: 28px;
+  text-align: left;
   z-index: 2;
 }
 
 .hero-text h1 {
-  font-size: 2.8rem;
+  font-size: 6rem;
   font-weight: 800;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, #ffffff 30%, #d4885a);
+  line-height: 1.1;
+  background: linear-gradient(to right, #d4885a 0%, #ffccaa 30%, #ffffff 80%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(3px 3px 0px rgba(181, 87, 46, 0.7)) drop-shadow(8px 8px 15px rgba(212, 136, 90, 0.4));
+  transform: perspective(600px) rotateY(-8deg);
+  transform-style: preserve-3d;
 }
 
 .hero-text p {
-  font-size: 1.15rem;
+  font-size: 1.6rem;
   color: #999;
-  margin-top: 8px;
+  margin-top: 16px;
   font-weight: 400;
   letter-spacing: 0.5px;
 }
 
 /* ===== ABOUT SECTION ===== */
 .about {
-  padding: 120px 60px 100px;
+  padding: 60px 60px 100px;
   position: relative;
   overflow: hidden;
+  z-index: 3;
 }
 
 .about::before {
@@ -243,8 +258,10 @@ body {
   left: 50%;
   transform: translateX(-50%);
   width: 80%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(212, 136, 90, 0.3), transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(212, 136, 90, 0.8), transparent);
+  box-shadow: 0 0 20px rgba(212, 136, 90, 0.8), 0 0 5px #d4885a;
+  z-index: 5;
 }
 
 .about-container {
@@ -269,10 +286,40 @@ body {
 
 .title-underline {
   width: 60px;
-  height: 3px;
+  height: 4px;
   background: linear-gradient(90deg, #d4885a, #b5572e);
   margin: 12px auto 0;
   border-radius: 4px;
+}
+
+.title-underline.v-shape {
+  background: transparent;
+  position: relative;
+  transform: translateY(calc(var(--scroll-angle, 35deg) * 0.4px));
+}
+
+.title-underline.v-shape::before,
+.title-underline.v-shape::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 32px;
+  height: 100%;
+  border-radius: 4px;
+}
+
+.title-underline.v-shape::before {
+  left: 0;
+  background: linear-gradient(90deg, #d4885a, #c46d43);
+  transform-origin: calc(100% - 2px) center;
+  transform: rotate(var(--scroll-angle, 35deg));
+}
+
+.title-underline.v-shape::after {
+  right: 0;
+  background: linear-gradient(90deg, #c46d43, #b5572e);
+  transform-origin: 2px center;
+  transform: rotate(calc(var(--scroll-angle, 35deg) * -1));
 }
 
 /* About content layout */
@@ -371,7 +418,7 @@ body {
 
 /* ===== EXPERIENCE SECTION ===== */
 .experience {
-  padding: 120px 60px 100px;
+  padding: 60px 60px 100px;
   position: relative;
 }
 
@@ -523,6 +570,19 @@ body {
   color: #e0e0e0;
 }
 
+.insta-link {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+  transition: opacity 0.3s;
+}
+
+.insta-link:hover {
+  opacity: 0.8;
+}
+
 .timeline-date {
   font-size: 0.85rem;
   color: #d4885a;
@@ -554,7 +614,7 @@ body {
 
 /* ===== EDUCATION SECTION ===== */
 .education {
-  padding: 120px 60px 100px;
+  padding: 60px 60px 100px;
   position: relative;
 }
 
@@ -576,7 +636,7 @@ body {
 
 /* ===== PROJECTS SECTION ===== */
 .projects {
-  padding: 120px 60px 100px;
+  padding: 60px 60px 100px;
   position: relative;
 }
 
@@ -699,7 +759,7 @@ body {
 
 /* ===== CONTACT SECTION ===== */
 .contact {
-  padding: 120px 60px 80px;
+  padding: 60px 60px 80px;
   position: relative;
 }
 
@@ -895,6 +955,17 @@ body {
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+    gap: 30px;
+    padding: 0 20px;
+    transform: none;
+  }
+  .hero-text { text-align: center; }
+  .hero-text h1 { font-size: 4.5rem; }
+}
+
 @media (max-width: 768px) {
   .navbar { padding: 14px 24px; }
   .nav-links { gap: 20px; }
@@ -906,24 +977,24 @@ body {
   .float-icon { width: 50px; height: 50px; border-radius: 12px; }
   .float-icon img { width: 30px; height: 30px; }
 
-  .hero-text h1 { font-size: 2rem; }
-  .hero-text p { font-size: 1rem; }
+  .hero-text h1 { font-size: 3.5rem; }
+  .hero-text p { font-size: 1.15rem; }
 
-  .about { padding: 80px 28px 60px; }
+  .about { padding: 50px 28px 60px; }
   .about-content { grid-template-columns: 1fr; gap: 40px; }
   .section-title { font-size: 2rem; }
   .about-stats { gap: 20px; }
   .stat-number { font-size: 1.6rem; }
 
-  .experience { padding: 80px 28px 60px; }
+  .experience { padding: 50px 28px 60px; }
   .timeline-header { flex-direction: column; gap: 4px; }
 
-  .education { padding: 80px 28px 60px; }
+  .education { padding: 50px 28px 60px; }
 
-  .projects { padding: 80px 28px 60px; }
+  .projects { padding: 50px 28px 60px; }
   .projects-grid { grid-template-columns: 1fr 1fr; gap: 20px; }
 
-  .contact { padding: 80px 28px 60px; }
+  .contact { padding: 50px 28px 60px; }
   .contact-content { grid-template-columns: 1fr; gap: 40px; }
   .form-row { grid-template-columns: 1fr; }
   .footer { padding: 28px 24px; }
@@ -940,23 +1011,36 @@ body {
   .float-icon { width: 42px; height: 42px; border-radius: 10px; }
   .float-icon img { width: 24px; height: 24px; }
 
-  .about { padding: 60px 18px 50px; }
+  .about { padding: 40px 18px 50px; }
   .about-skills { grid-template-columns: 1fr; }
   .about-stats { flex-direction: column; gap: 16px; }
   .section-title { font-size: 1.6rem; }
 
-  .experience { padding: 60px 18px 50px; }
+  .experience { padding: 40px 18px 50px; }
   .timeline { padding-left: 30px; }
   .timeline-card { padding: 20px; }
 
-  .education { padding: 60px 18px 50px; }
+  .education { padding: 40px 18px 50px; }
 
-  .projects { padding: 60px 18px 50px; }
+  .projects { padding: 40px 18px 50px; }
   .projects-grid { grid-template-columns: 1fr; }
   .project-image { height: 140px; }
 
-  .contact { padding: 60px 18px 50px; }
+  .contact { padding: 40px 18px 50px; }
   .contact-socials { gap: 10px; }
   .form-submit { width: 100%; text-align: center; }
   .footer { padding: 24px 18px; }
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
