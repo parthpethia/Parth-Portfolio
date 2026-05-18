@@ -443,15 +443,15 @@ function App() {
             <div className="projects-grid">
               <div className="project-card reveal">
                 <div className="project-image">
-                  <div className="project-placeholder">💻</div>
+                  <div className="project-placeholder">📱</div>
                 </div>
                 <div className="project-info">
-                  <h3>Portfolio Website</h3>
-                  <p>A modern dark-themed portfolio website built with HTML, CSS, and JavaScript featuring smooth animations and parallax effects.</p>
+                  <h3>PConnect - Remote PC Controller</h3>
+                  <p>LAN-based remote control system enabling Android devices to securely control Windows PCs over Wi-Fi using low-latency WebSockets and mDNS discovery.</p>
                   <div className="project-tags">
-                    <span>HTML</span>
-                    <span>CSS</span>
-                    <span>JavaScript</span>
+                    <span>Flutter</span>
+                    <span>C# / .NET</span>
+                    <span>WebSockets</span>
                   </div>
                   <div className="project-links">
                     <a href="#" className="project-btn">View Project</a>
@@ -461,15 +461,15 @@ function App() {
               </div>
               <div className="project-card reveal">
                 <div className="project-image">
-                  <div className="project-placeholder">⚛️</div>
+                  <div className="project-placeholder">🤖</div>
                 </div>
                 <div className="project-info">
-                  <h3>React Dashboard App</h3>
-                  <p>An interactive dashboard application built with React featuring real-time data visualization, responsive layouts, and smooth transitions.</p>
+                  <h3>CreatorOS - AI Creators OS</h3>
+                  <p>AI-powered full-stack platform that analyzes creator style and generates personalized content ideas and scripts with end-to-end workflows.</p>
                   <div className="project-tags">
-                    <span>React</span>
-                    <span>JavaScript</span>
-                    <span>CSS</span>
+                    <span>Next.js</span>
+                    <span>FastAPI</span>
+                    <span>Supabase</span>
                   </div>
                   <div className="project-links">
                     <a href="#" className="project-btn">View Project</a>
@@ -479,15 +479,15 @@ function App() {
               </div>
               <div className="project-card reveal">
                 <div className="project-image">
-                  <div className="project-placeholder">☕</div>
+                  <div className="project-placeholder">🏏</div>
                 </div>
                 <div className="project-info">
-                  <h3>Java Management System</h3>
-                  <p>A full-stack management application built with Java featuring CRUD operations, database integration, and a clean user interface.</p>
+                  <h3>Cricbidder - Auction System</h3>
+                  <p>Real-time full stack cricket auction platform with live bidding, budget tracking, team comparisons, and scalable real-time updates.</p>
                   <div className="project-tags">
-                    <span>Java</span>
-                    <span>MySQL</span>
-                    <span>OOP</span>
+                    <span>React 19</span>
+                    <span>Vite</span>
+                    <span>Supabase</span>
                   </div>
                   <div className="project-links">
                     <a href="#" className="project-btn">View Project</a>
